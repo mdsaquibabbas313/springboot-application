@@ -29,6 +29,6 @@ public class PnrNumber {
     @Column(name = "gender")
     private String gender;
 
-    @Column(name = "pnr_number")
+    @Column(name = "pnr_number", nullable = false)
     private String pnrNumber;
 }
