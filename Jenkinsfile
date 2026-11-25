@@ -10,7 +10,10 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'chmod +x mvnw && ./mvnw clean package'
+                sh 'chmod +x mvnw'
+                withCredentials([string(credentialsId: 'db-password', variable: 'DB_PASSWORD')]) {
+                    sh './mvnw clean package'
+                }
             }
         }
     }
