@@ -3,6 +3,7 @@ package com.project.my_app.transformer;
 import com.project.my_app.domain.PnrNumber;
 import com.project.my_app.dto.request.PnrNumberRequestDTO;
 import com.project.my_app.dto.response.PnrNumberResponseDTO;
+import com.project.my_app.strategy.RandomAlgo;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,7 +19,7 @@ public class PnrNumberTransformer {
         entity.setAge(dto.age());
         entity.setEmail(dto.email());
         entity.setGender(dto.gender());
-        entity.setPnrNumber(generatePnrNumber()); // Assuming you have a method to generate PNR number
+        entity.setPnrNumber(RandomAlgo.generateRandomString(9)); // Assuming you have a method to generate PNR number
         return entity;
     }
 
